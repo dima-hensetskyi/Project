@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Table }from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-import Row from './Row';
+import { Container, Row, Col, Table, Tabs, Tab }from 'react-bootstrap';
+import ChargeRow from './ChargeRow';
 import { v4 as uuidv4 } from 'uuid';
 
 function CategoriesPage () {
-	const [charges, setCharges] = useState([]);
+	const storedCharges = JSON.parse(localStorage.getItem("charges"));
+
+	const [charges, setCharges] = useState(storedCharges || []);
 	const [newCharge, setNewCharge] = useState(null);
 	const [editableChargeId, setEditableChargeId] = useState();
 
@@ -20,6 +21,7 @@ function CategoriesPage () {
 	}; 
 
 	const handleSaveNewCharge = () => {
+		localStorage.setItem("charges", JSON.stringify([...charges, newCharge]));
 		setCharges([...charges, newCharge]);
 		setNewCharge(null);
 		setEditableChargeId(null);
@@ -32,6 +34,8 @@ function CategoriesPage () {
 			}
 			return charge;
 		})
+
+		localStorage.setItem("charges", JSON.stringify(updatedCharges));
 
 		setCharges(updatedCharges);
 		setNewCharge(null);
@@ -54,6 +58,9 @@ function CategoriesPage () {
 
 	const handleDeleteCharge = (id) => {
 		const arrayCharges = charges.filter((charge) => charge.id !== id);
+
+		localStorage.setItem("charges", JSON.stringify(arrayCharges));
+
 		setCharges([...arrayCharges]);
 	}
 
@@ -72,39 +79,50 @@ function CategoriesPage () {
 	}
 
 	return (
-		<>
-			<button type="button" className="btn btn-primary" onClick={handleAddNewCharge}>Add new</button>
-			<Table striped bordered hover>
-				<thead>
-					<tr> 
-						<th>Category</th>
-						<th data-editable="true">Description</th>
-						<th>Date</th>
-						<th>Money</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					{charges.map((charge) => {
-						if (editableChargeId === charge.id){
-							return (<Row key={charge.id} {...newCharge} 
-								onChargeChange={handleChargeChange} 
-								onSaveNewCharge={handleSaveEdit} 
-								onCancelNewCharge={handleCancelNewCharge} 
-								/>)
-						} else{
-							return buildChargeRow(charge);
-						}
-					})}
-					{newCharge && !editableChargeId &&
-						(<Row key={newCharge.id} {...newCharge}
-						onChargeChange={handleChargeChange}
-						onSaveNewCharge={handleSaveNewCharge}
-						onCancelNewCharge={handleCancelNewCharge}
-						/>)}
-				</tbody>
-			</Table>
-		</>
+		<Container>
+			<Row>
+				<Col md={{ span: 1, offset: 11 }}>Balance</Col>
+				<Col md={{ span: 1, offset: 11 }}>1000$</Col>
+				</Row>
+		<Tabs defaultActiveKey="charges" id="uncontrolled-tab-example">
+			<Tab eventKey="charges" title="Charges">
+				<button type="button" className="btn btn-primary" onClick={handleAddNewCharge}>Add new</button>
+					<Table striped bordered hover>
+						<thead>
+							<tr> 
+								<th>Category</th>
+								<th data-editable="true">Description</th>
+								<th>Date</th>
+								<th>Money</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							{charges.map((charge) => {
+								if (editableChargeId === charge.id){
+									return (<ChargeRow key={charge.id} {...newCharge} 
+										onChargeChange={handleChargeChange} 
+										onSaveNewCharge={handleSaveEdit} 
+										onCancelNewCharge={handleCancelNewCharge} 
+										/>)
+								} else{
+									return buildChargeRow(charge);
+								}
+							})}
+							{newCharge && !editableChargeId &&
+								(<ChargeRow key={newCharge.id} {...newCharge}
+								onChargeChange={handleChargeChange}
+								onSaveNewCharge={handleSaveNewCharge}
+								onCancelNewCharge={handleCancelNewCharge}
+								/>)}
+						</tbody>
+					</Table>
+			</Tab>
+			<Tab eventKey="incomes" title="Incomes">
+				<h2>Any content 2</h2>
+			</Tab>
+		</Tabs>
+		</Container>
 	);
 }
 

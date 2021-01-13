@@ -1,15 +1,24 @@
-import { Form } from 'react-bootstrap';
+import { Form, Dropdown, DropdownButton } from 'react-bootstrap';
+import Select from 'react-select';
 
-function Row({id, category, description, date, money, onChargeChange, onSaveNewCharge, onCancelNewCharge}) {
+const options = [
+  	{ value: 'food', label: 'Food' },
+  	{ value: 'clothes', label: 'Clothes' },
+	{ value: 'restaurant', label: 'Restaurant' },
+	{ value: 'utility bills', label: 'Utility bills' },
+  	{ value: 'pets', label: 'Pets' },
+];
+
+function ChargeRow({id, category, description, date, money, onChargeChange, onSaveNewCharge, onCancelNewCharge}) {
 	return (
 		<tr>
 			<td>
-				<Form.Control 
-					type="text" 
-					placeholder="Categories" 
-					onChange={({target}) => onChargeChange({id, description, date, money, category: target.value})} 
-					value={category}
-				/>
+				<Select
+					value={{value: category, label: category}}
+					// onChange={handleChange}
+					onChange={(selectedOption) => onChargeChange({id, description, date, money, category: selectedOption.value})}
+					options={options}
+      	/>
 			</td>
 			<td>
 				<Form.Control
@@ -38,4 +47,4 @@ function Row({id, category, description, date, money, onChargeChange, onSaveNewC
 	);
 } 
 
-export default Row;
+export default ChargeRow;
