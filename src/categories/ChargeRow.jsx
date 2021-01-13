@@ -15,7 +15,6 @@ function ChargeRow({id, category, description, date, money, onChargeChange, onSa
 			<td>
 				<Select
 					value={{value: category, label: category}}
-					// onChange={handleChange}
 					onChange={(selectedOption) => onChargeChange({id, description, date, money, category: selectedOption.value})}
 					options={options}
       	/>
