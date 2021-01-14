@@ -2,8 +2,17 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Table, Tabs, Tab }from 'react-bootstrap';
 import ChargeRow from './ChargeRow';
 import { v4 as uuidv4 } from 'uuid';
+import CurrentBalance from './CurrentBalance';
+import MomentLocaleUtils, {
+  formatDate,
+  parseDate,
+} from 'react-day-picker/moment';
+import './Button.css'
 
 function CategoriesPage () {
+	const headers = ['Category', 'Description', 'Date', 'Money', 'Action'];
+
+
 	const storedCharges = JSON.parse(localStorage.getItem("charges"));
 
 	const [charges, setCharges] = useState(storedCharges || []);
@@ -15,7 +24,7 @@ function CategoriesPage () {
 			id: uuidv4(),
 			category: '',
 			description : '',
-			date: '28.12.2020',
+			date: formatDate(new Date()),
 			money: '$'
 		})
 	}; 
@@ -27,7 +36,7 @@ function CategoriesPage () {
 		setEditableChargeId(null);
 	}
 
-	const handleSaveEdit = () => {
+	const handleSaveEditableCharge = () => {
 		const updatedCharges = charges.map((charge) => {
 			if(charge.id === newCharge.id){
 				return newCharge;
@@ -79,44 +88,46 @@ function CategoriesPage () {
 	}
 
 	return (
-		<Container>
-			<Row>
-				<Col md={{ span: 1, offset: 11 }}>Balance</Col>
-				<Col md={{ span: 1, offset: 11 }}>1000$</Col>
-				</Row>
-		<Tabs defaultActiveKey="charges" id="uncontrolled-tab-example">
+		<Container className="p-5">
+			<CurrentBalance />
+
+
+		<Tabs defaultActiveKey="charges" id="uncontrolled-tab-example" className="mb-5">
 			<Tab eventKey="charges" title="Charges">
-				<button type="button" className="btn btn-primary" onClick={handleAddNewCharge}>Add new</button>
-					<Table striped bordered hover>
-						<thead>
-							<tr> 
-								<th>Category</th>
-								<th data-editable="true">Description</th>
-								<th>Date</th>
-								<th>Money</th>
-								<th>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							{charges.map((charge) => {
-								if (editableChargeId === charge.id){
-									return (<ChargeRow key={charge.id} {...newCharge} 
-										onChargeChange={handleChargeChange} 
-										onSaveNewCharge={handleSaveEdit} 
-										onCancelNewCharge={handleCancelNewCharge} 
+				<div className="d-flex justify-content-end">
+					<button type="button" className="btn btn-primary" onClick={handleAddNewCharge}>Add new</button>
+				</div>
+
+					<div className="pt-3">
+				
+					<Table striped bordered hover>   
+				<thead>
+			<tr> 
+				{headers.map((header) => <th>{header}</th>)}
+			</tr>
+		</thead>
+		<tbody>
+				{charges.map((charge) => {
+					if (editableChargeId === charge.id){
+						return (<ChargeRow key={charge.id} {...newCharge} 
+								onChargeChange={handleChargeChange} 
+								onSaveNewCharge={handleSaveEditableCharge} 
+								onCancelNewCharge={handleCancelNewCharge} 
 										/>)
-								} else{
-									return buildChargeRow(charge);
-								}
-							})}
-							{newCharge && !editableChargeId &&
-								(<ChargeRow key={newCharge.id} {...newCharge}
-								onChargeChange={handleChargeChange}
-								onSaveNewCharge={handleSaveNewCharge}
-								onCancelNewCharge={handleCancelNewCharge}
-								/>)}
-						</tbody>
-					</Table>
+					} else{
+						return buildChargeRow(charge);
+						}
+				})}
+				{newCharge && !editableChargeId &&
+									(<ChargeRow key={newCharge.id} {...newCharge}
+									onChargeChange={handleChargeChange}
+									onSaveNewCharge={handleSaveNewCharge}
+									onCancelNewCharge={handleCancelNewCharge}
+									/>)}
+		</tbody>
+    </Table>
+						
+					</div>
 			</Tab>
 			<Tab eventKey="incomes" title="Incomes">
 				<h2>Any content 2</h2>
