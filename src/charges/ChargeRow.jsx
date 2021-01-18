@@ -39,7 +39,7 @@ function ChargeRow({
                             category: selectedOption.value,
                         })
                     }
-                    categoriesOptions={categoriesOptions}
+                    options={categoriesOptions}
                 />
             </td>
             <td>
