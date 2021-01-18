@@ -31,14 +31,14 @@ function TableCharges() {
             date: formatDate(new Date()),
             money: '',
         });
-    }
+    };
 
     const handleSaveNewCharge = () => {
         localStorage.setItem('charges', JSON.stringify([...charges, newCharge]));
         setCharges([...charges, newCharge]);
         setNewCharge(null);
         setEditableChargeId(null);
-    }
+    };
 
     const handleSaveEditableCharge = () => {
         const updatedCharges = charges.map((charge) => {
@@ -53,21 +53,21 @@ function TableCharges() {
         setCharges(updatedCharges);
         setNewCharge(null);
         setEditableChargeId(null);
-    }
+    };
 
     const handleCancelNewCharge = () => {
         setNewCharge(null);
         setEditableChargeId(null);
-    }
+    };
 
     const handleChargeChange = (charge) => {
         setNewCharge(charge);
-    }
+    };
 
     const handleEditCharge = (charge) => {
         setEditableChargeId(charge.id);
         setNewCharge(charge);
-    }
+    };
 
     const handleDeleteCharge = (id) => {
         const arrayCharges = charges.filter((charge) => charge.id !== id);
@@ -75,7 +75,7 @@ function TableCharges() {
         localStorage.setItem('charges', JSON.stringify(arrayCharges));
 
         setCharges([...arrayCharges]);
-    }
+    };
 
     const buildChargeRow = (charge) => {
         return (
@@ -91,8 +91,8 @@ function TableCharges() {
                     </div>
                 </td>
             </tr>
-        )
-    }
+        );
+    };
 
     const onSort = (category) => {
         const cloneData = charges.map((item) => {
@@ -103,7 +103,7 @@ function TableCharges() {
                     ...item,
                     money: Number(moneyFormat),
                     date: сorrectDateFormat,
-                }
+                };
             }
             return item;
         });
@@ -119,17 +119,19 @@ function TableCharges() {
             const correctDay = (date) =>
                 date.getDate() <= 9 ? `0${date.getDate()}` : `${date.getDate()}`;
             const correctMounth = (date) =>
-                date.getMonth() <= 9 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
+                date.getMonth() <= 8 ? `0${date.getMonth() + 1}` : `${date.getMonth() + 1}`;
 
-            const correctDateFormat = `${correctMounth(date)}/${correctDay(date)}/${date.getFullYear()}`;
+            const correctDateFormat = `${correctMounth(date)}/${correctDay(
+                date
+            )}/${date.getFullYear()}`;
             return {
                 ...item,
                 money: item.money + '$',
                 date: correctDateFormat,
-            }
+            };
         });
         setCharges(correctData);
-    }
+    };
     return (
         <div className="charge-table">
             <div className="d-flex justify-content-end pb-3">
