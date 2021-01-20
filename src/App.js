@@ -1,12 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import ChargesPages from './charges/ChargesPage';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from "./logo.svg";
+import "./App.css";
+import TransactionsPages from "./transactions/TransactionsPage";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return (
-    <ChargesPages />
-  );
+  return <TransactionsPages />;
 }
 
 export default App;
