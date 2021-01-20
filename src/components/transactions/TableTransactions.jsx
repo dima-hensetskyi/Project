@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import TransactionRow from "./TransactionRow";
 import "./TableTransactions.css";
-import Icon from "../common/Icon";
+import Icon from "../../common/Icon";
 import _ from "lodash";
 
 function TableTransactions({ storedTransactions, onTransactionChange }) {

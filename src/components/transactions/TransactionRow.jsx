@@ -8,7 +8,7 @@ import MomentLocaleUtils, {
   parseDate,
 } from "react-day-picker/moment";
 import "./TransactionRow.css";
-import Icon from "../common/Icon";
+import Icon from "../../common/Icon";
 
 const transactionsOptions = [
   { value: "food", label: "Food" },

@@ -3,7 +3,7 @@
   background-color: #edecf3;
   height: 100vw;
   border-radius: 20px;
-  padding: 100px;
+  /* padding: 100px; */
   display: flex;
   flex-direction: row;
 }
@@ -17,9 +17,9 @@
 }
 .transaction-page {
   background-color: #fff;
-  padding: 20px;
+  /* padding: 20px; */
   width: 100%;
   border-radius: 20px;
-  margin-left: -32px;
+  /* margin-left: -32px; */
   padding: 50px;
 }

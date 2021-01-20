@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CurrentBalance from "./CurrentBalance";
+// import CurrentBalance from "../CurrentBalance/CurrentBalance";
 import { Tabs, Tab } from "react-bootstrap";
 
 import "./TransactionsPage.css";
@@ -33,34 +33,33 @@ function TransactionsPage() {
     );
     setBalance(incomesSum - chargesSum);
   };
-
-  return (
-    <div className="page">
-      <nav className="navigation-wrapper">
+  {
+    /* <nav className="navigation-wrapper">
         <CurrentBalance balance={balance} />
-      </nav>
-      <div className="transaction-page">
-        <Tabs defaultActiveKey="charges" className="mb-5">
-          <Tab eventKey="charges" title="Charges">
-            <TableTransactions
-              storedTransactionKey="charges"
-              storedTransactions={storedCharges}
-              onTransactionChange={(transactions) =>
-                handleTransactionChange("charges", transactions)
-              }
-            />
-          </Tab>
-          <Tab eventKey="incomes" title="Incomes">
-            <TableTransactions
-              storedTransactionKey="incomes"
-              storedTransactions={storedIncomes}
-              onTransactionChange={(transactions) =>
-                handleTransactionChange("incomes", transactions)
-              }
-            />
-          </Tab>
-        </Tabs>
-      </div>
+      </nav> */
+  }
+  return (
+    <div className="transaction-page">
+      <Tabs defaultActiveKey="charges" className="mb-5">
+        <Tab eventKey="charges" title="Charges">
+          <TableTransactions
+            storedTransactionKey="charges"
+            storedTransactions={storedCharges}
+            onTransactionChange={(transactions) =>
+              handleTransactionChange("charges", transactions)
+            }
+          />
+        </Tab>
+        <Tab eventKey="incomes" title="Incomes">
+          <TableTransactions
+            storedTransactionKey="incomes"
+            storedTransactions={storedIncomes}
+            onTransactionChange={(transactions) =>
+              handleTransactionChange("incomes", transactions)
+            }
+          />
+        </Tab>
+      </Tabs>
     </div>
   );
 }
