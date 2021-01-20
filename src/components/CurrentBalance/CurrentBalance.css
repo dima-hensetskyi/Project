@@ -1,0 +1,24 @@
+.balance-block {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    width: 160px;
+    background-color: #5043a7;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+.balance-text-sum {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    align-self: center;
+    padding-top: 15px;
+}
+.balance-text {
+    color: #fff;
+    font-size: 16px;
+    font-weight: lighter;
+    align-self: center;
+}
