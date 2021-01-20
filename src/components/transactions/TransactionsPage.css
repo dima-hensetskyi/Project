@@ -1,0 +1,25 @@
+.page {
+  width: 100%;
+  background-color: #edecf3;
+  height: 100vw;
+  border-radius: 20px;
+  /* padding: 100px; */
+  display: flex;
+  flex-direction: row;
+}
+.navigation-wrapper {
+  background-color: #4333a0;
+  border-radius: 20px;
+  width: 300px;
+  display: flex;
+  justify-content: start;
+  padding-left: 30px;
+}
+.transaction-page {
+  background-color: #fff;
+  /* padding: 20px; */
+  width: 100%;
+  border-radius: 20px;
+  /* margin-left: -32px; */
+  padding: 50px;
+}

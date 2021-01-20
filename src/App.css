@@ -1,45 +1,45 @@
 .app {
-    width: 100%;
-    background-color: #edecf3;
-    height: 100vw;
-    border-radius: 20px;
-    padding: 100px;
-    display: flex;
-    flex-direction: row;
+  width: 100%;
+  background-color: #edecf3;
+  height: 100vw;
+  border-radius: 20px;
+  padding: 100px;
+  display: flex;
+  flex-direction: row;
 }
 .page {
-    background-color: #fff;
-    padding: 20px;
-    width: 100%;
-    border-radius: 20px;
-    margin-left: -32px;
-    padding: 50px;
+  background-color: #fff;
+  /* padding: 20px; */
+  width: 100%;
+  border-radius: 20px;
+  /* margin-left: -32px; */
+  /* padding: 50px; */
 }
 .navigation-wrapper {
-    background-color: #4333a0;
-    border-radius: 20px;
-    width: 306px;
-    display: flex;
-    justify-content: start;
-    flex-direction: column;
+  background-color: #4333a0;
+  border-radius: 20px;
+  width: 306px;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
 }
 .link-list {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .app-link {
-    width: 220px;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: 300px;
+  width: 220px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 300px;
 }
 .app-link:hover {
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
 }
 .active-link {
-    background-color: #5043a7;
+  background-color: #5043a7;
 }
