@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import Select from "react-select";
 import DayPickerInput from "react-day-picker/DayPickerInput";
@@ -8,7 +8,7 @@ import MomentLocaleUtils, {
   parseDate,
 } from "react-day-picker/moment";
 import "./TransactionRow.css";
-import Icon from "../../common/Icon";
+import Icon from "../../common/icons/Icon";
 
 const transactionsOptions = [
   { value: "food", label: "Food" },
@@ -28,20 +28,39 @@ function TransactionRow({
   onSaveNewTransaction,
   onCancelNewTransaction,
 }) {
+  const [isValidated, setIsValidated] = useState(false);
+
+  const handleSaveNewTransaction = () => {
+    setIsValidated(true);
+    if (isValidCategory() && isValidMoney()) {
+      onSaveNewTransaction();
+    }
+  };
+
+  const isValidMoney = (money) => {
+    const regex = new RegExp("^(?=.*[0-9])");
+    return regex.test(String([money]).toLowerCase());
+  };
+
+  const isValidCategory = (category) => {
+    return !!category;
+  };
+
   return (
     <tr className="transaction-row">
       <td>
         <Select
+          className={isValidated && !isValidCategory(category) && "error-input"}
           value={{ value: category, label: category }}
-          onChange={(selectedOption) =>
+          onChange={(selectedOption) => {
             onTransactionChange({
               id,
               description,
               date,
               money,
               category: selectedOption.value,
-            })
-          }
+            });
+          }}
           options={transactionsOptions}
         />
       </td>
@@ -79,6 +98,7 @@ function TransactionRow({
       </td>
       <td>
         <Form.Control
+          className={isValidated && !isValidMoney(money) && "error-input"}
           type="text"
           placeholder="Money"
           onChange={({ target }) =>
@@ -95,7 +115,7 @@ function TransactionRow({
       </td>
       <td>
         <div className="action-buttons">
-          <Icon iconName="save" onClick={onSaveNewTransaction} />
+          <Icon iconName="save" onClick={handleSaveNewTransaction} />
           <Icon iconName="cancel" onClick={onCancelNewTransaction} />
         </div>
       </td>

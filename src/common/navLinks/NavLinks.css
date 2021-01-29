@@ -1,0 +1,32 @@
+.link-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 220px;
+  padding: 50px 20px 0;
+}
+.link-list {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.list-item-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 46px;
+}
+.app-link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 300px;
+}
+.app-link:hover {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+.active-link {
+  background-color: #5043a7;
+}

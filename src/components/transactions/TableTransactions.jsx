@@ -11,10 +11,10 @@ import { v4 as uuidv4 } from "uuid";
 
 import TransactionRow from "./TransactionRow";
 import "./TableTransactions.css";
-import Icon from "../../common/Icon";
+import Icon from "../../common/icons/Icon";
 import _ from "lodash";
 
-function TableTransactions({ storedTransactions, onTransactionChange }) {
+const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
   const [transactions, setTransactions] = useState(storedTransactions || []);
   const [newTransaction, setNewTransaction] = useState(null);
   const [editableTransactionId, setEditableTransactionId] = useState();
@@ -133,7 +133,7 @@ function TableTransactions({ storedTransactions, onTransactionChange }) {
       )}/${date.getFullYear()}`;
       return {
         ...item,
-        money: item.money + "$",
+        money: item.money,
         date: correctDateFormat,
       };
     });
@@ -142,9 +142,12 @@ function TableTransactions({ storedTransactions, onTransactionChange }) {
   return (
     <div className="transaction-table">
       <div className="d-flex justify-content-end pb-3">
-        <Icon iconName="add" size="big" onClick={handleAddNewTransaction} />
+        <button className="addNewButton" onClick={handleAddNewTransaction}>
+          Add More
+        </button>
+        {/* <Icon iconName="add" size="big" onClick={handleAddNewTransaction} /> */}
       </div>
-      <Table striped bordered hover>
+      <Table striped hover responsive="sm" size="lg">
         <thead>
           <tr>
             {headers.map((header, index) => (
@@ -187,6 +190,6 @@ function TableTransactions({ storedTransactions, onTransactionChange }) {
       </Table>
     </div>
   );
-}
+};
 
 export default TableTransactions;
