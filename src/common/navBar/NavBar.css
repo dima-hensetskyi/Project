@@ -1,0 +1,8 @@
+.navigation-wrapper {
+  background-color: #4333a0;
+  border-radius: 20px;
+  width: 306px;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}

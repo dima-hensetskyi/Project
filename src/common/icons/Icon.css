@@ -1,0 +1,19 @@
+.icon-button-violet img {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 10px;
+  top: 8px;
+
+  width: 16px;
+  /* cursor: pointer; */
+}
+.icon-button-violet {
+  display: flex;
+  align-self: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #4333a0;
+  position: relative;
+}

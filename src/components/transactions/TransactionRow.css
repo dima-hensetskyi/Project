@@ -3,3 +3,7 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.error-input {
+  border: 1px solid red;
+}
