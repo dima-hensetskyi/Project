@@ -3,6 +3,7 @@ import { Tabs, Tab } from "react-bootstrap";
 
 import TableTransactions from "./TableTransactions";
 import NavBar from "../../common/navBar/NavBar";
+import { getBalance } from "../../common/utils/LocalStorageUtil";
 
 import "./TransactionsPage.css";
 
@@ -13,26 +14,16 @@ function TransactionsPage() {
   const [balance, setBalance] = useState(0);
 
   useEffect(() => {
-    getBalance(storedIncomes, storedCharges);
+    const balance = getBalance(storedIncomes, storedCharges);
+    setBalance(balance);
   }, []);
 
   const handleTransactionChange = (storageKey, transactions) => {
     localStorage.setItem(storageKey, JSON.stringify(transactions));
     const incomes = storageKey === "incomes" ? transactions : storedIncomes;
     const charges = storageKey === "charges" ? transactions : storedCharges;
-    getBalance(incomes, charges);
-  };
-
-  const getBalance = (incomes, charges) => {
-    const incomesSum = incomes.reduce(
-      (total, income) => (total += +income.money),
-      0
-    );
-    const chargesSum = charges.reduce(
-      (total, charge) => (total += +charge.money),
-      0
-    );
-    setBalance(incomesSum - chargesSum);
+    const balance = getBalance(incomes, charges);
+    setBalance(balance);
   };
 
   return (

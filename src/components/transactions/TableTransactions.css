@@ -22,13 +22,6 @@ th {
   color: red;
 }
 
-.addNewButton {
-  background-color: #4333a0;
-  color: white;
-  border-radius: 10px;
-  padding: 10px;
-}
-
 table.greyGridTable {
   border: 0px solid #ffffff;
   width: 100%;
@@ -42,6 +35,7 @@ table.greyGridTable th {
 }
 table.greyGridTable tbody td {
   font-size: 16px;
+  width: 160px;
 }
 table.greyGridTable td:nth-child(even) {
   background: #ebebeb;

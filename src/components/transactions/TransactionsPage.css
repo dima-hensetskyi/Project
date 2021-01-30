@@ -4,15 +4,8 @@
   display: flex;
   flex-direction: column;
 }
-/* .navigation-wrapper {
-  background-color: #180303;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-} */
+
 .tables-wrapper {
-  /* background-color: #fff; */
   width: 100%;
   padding: 50px;
-  /* background: transparent; */
 }

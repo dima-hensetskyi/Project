@@ -1,17 +1,9 @@
 import React, { useState } from "react";
-
-import { Table } from "react-bootstrap";
-
-import MomentLocaleUtils, {
-  formatDate,
-  parseDate,
-} from "react-day-picker/moment";
-
+import { formatDate } from "react-day-picker/moment";
 import { v4 as uuidv4 } from "uuid";
 
 import TransactionRow from "./TransactionRow";
 import "./TableTransactions.css";
-import Icon from "../../common/icons/Icon";
 import _ from "lodash";
 
 const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
@@ -59,10 +51,6 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
     setEditableTransactionId(null);
   };
 
-  const handleTransactionChange = (transaction) => {
-    setNewTransaction(transaction);
-  };
-
   const handleEditTransaction = (transaction) => {
     setEditableTransactionId(transaction.id);
     setNewTransaction(transaction);
@@ -76,40 +64,30 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
     setTransactions([...arrayTransactions]);
   };
 
-  const buildTransactionRow = (transaction) => {
-    return (
-      <tr key={transaction.id}>
-        <td>{transaction.category}</td>
-        <td>{transaction.description}</td>
-        <td>{transaction.date}</td>
-        <td>{transaction.money}</td>
-        <td>
-          <div className="action-table-buttons">
-            <button
-              className="action-table-button"
-              onClick={() => handleEditTransaction(transaction)}
-            >
-              Edit
-            </button>
-            <button
-              className="action-table-button"
-              onClick={() => handleDeleteTransaction(transaction.id)}
-            >
-              Delete
-            </button>
-            {/* <Icon
-              iconName="edit"
-              onClick={() => handleEditTransaction(transaction)}
-            />
-            <Icon
-              iconName="delete"
-              onClick={() => handleDeleteTransaction(transaction.id)}
-            /> */}
-          </div>
-        </td>
-      </tr>
-    );
-  };
+  const buildTransactionRow = (transaction) => (
+    <tr key={transaction.id}>
+      <td>{transaction.category}</td>
+      <td>{transaction.description}</td>
+      <td>{transaction.date}</td>
+      <td>{transaction.money}</td>
+      <td>
+        <div className="action-table-buttons">
+          <button
+            className="action-table-button"
+            onClick={() => handleEditTransaction(transaction)}
+          >
+            Edit
+          </button>
+          <button
+            className="action-table-button"
+            onClick={() => handleDeleteTransaction(transaction.id)}
+          >
+            Delete
+          </button>
+        </div>
+      </td>
+    </tr>
+  );
 
   const onSort = (category) => {
     const cloneData = transactions.map((item) => {
@@ -151,6 +129,7 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
     });
     setTransactions(correctData);
   };
+
   return (
     <div className="transaction-table">
       <div className="d-flex justify-content-end pb-3">
@@ -160,7 +139,6 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
         >
           Add More
         </button>
-        {/* <Icon iconName="add" size="big" onClick={handleAddNewTransaction} /> */}
       </div>
       <table className="greyGridTable" striped hover responsive="sm" size="lg">
         <thead>
@@ -183,7 +161,7 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
                 <TransactionRow
                   key={transaction.id}
                   {...newTransaction}
-                  onTransactionChange={handleTransactionChange}
+                  onTransactionChange={setNewTransaction}
                   onSaveNewTransaction={handleSaveEditableTransaction}
                   onCancelNewTransaction={handleCancelNewTransaction}
                 />
@@ -196,7 +174,7 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
             <TransactionRow
               key={newTransaction.id}
               {...newTransaction}
-              onTransactionChange={handleTransactionChange}
+              onTransactionChange={setNewTransaction}
               onSaveNewTransaction={handleSaveNewTransaction}
               onCancelNewTransaction={handleCancelNewTransaction}
             />
