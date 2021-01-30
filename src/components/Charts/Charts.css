@@ -1,0 +1,11 @@
+.charts-page {
+  width: 100%;
+  background-color: #edecf3;
+  display: flex;
+  flex-direction: column;
+}
+
+.charts-wrapper {
+  width: 100%;
+  padding: 50px;
+}

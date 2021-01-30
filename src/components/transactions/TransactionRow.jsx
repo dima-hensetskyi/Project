@@ -3,12 +3,8 @@ import { Form } from "react-bootstrap";
 import Select from "react-select";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
-import MomentLocaleUtils, {
-  formatDate,
-  parseDate,
-} from "react-day-picker/moment";
+import { formatDate, parseDate } from "react-day-picker/moment";
 import "./TransactionRow.css";
-import Icon from "../../common/icons/Icon";
 
 const transactionsOptions = [
   { value: "food", label: "Food" },
@@ -32,7 +28,7 @@ function TransactionRow({
 
   const handleSaveNewTransaction = () => {
     setIsValidated(true);
-    if (isValidCategory() && isValidMoney()) {
+    if (isValidCategory(category) && isValidMoney(money)) {
       onSaveNewTransaction();
     }
   };
@@ -42,9 +38,7 @@ function TransactionRow({
     return regex.test(String([money]).toLowerCase());
   };
 
-  const isValidCategory = (category) => {
-    return !!category;
-  };
+  const isValidCategory = (category) => !!category;
 
   return (
     <tr className="transaction-row">
@@ -115,8 +109,12 @@ function TransactionRow({
       </td>
       <td>
         <div className="action-buttons">
-          <Icon iconName="save" onClick={handleSaveNewTransaction} />
-          <Icon iconName="cancel" onClick={onCancelNewTransaction} />
+          <button className="action-button" onClick={handleSaveNewTransaction}>
+            Save
+          </button>
+          <button className="action-button" onClick={onCancelNewTransaction}>
+            Cancel
+          </button>
         </div>
       </td>
     </tr>

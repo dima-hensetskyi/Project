@@ -1,18 +1,19 @@
 .balance-block {
   display: flex;
   flex-direction: column;
-  height: 120px;
-  width: 160px;
-  background-color: #5043a7;
-  border-radius: 20px;
-  margin-top: 30px;
+  /* height: 120px; */
+  /* width: 160px; */
+  background-color: ##161616;
+  padding: 10px;
+  /* border-radius: 20px; */
+  /* margin-top: 30px; */
 }
 .balance-text-sum {
   color: #fff;
   font-size: 30px;
   font-weight: bold;
   align-self: center;
-  padding-top: 15px;
+  /* padding-top: 15px; */
 }
 .balance-text {
   color: #fff;
