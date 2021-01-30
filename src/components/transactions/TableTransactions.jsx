@@ -84,15 +84,27 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
         <td>{transaction.date}</td>
         <td>{transaction.money}</td>
         <td>
-          <div className="action-buttons">
-            <Icon
+          <div className="action-table-buttons">
+            <button
+              className="action-table-button"
+              onClick={() => handleEditTransaction(transaction)}
+            >
+              Edit
+            </button>
+            <button
+              className="action-table-button"
+              onClick={() => handleDeleteTransaction(transaction.id)}
+            >
+              Delete
+            </button>
+            {/* <Icon
               iconName="edit"
               onClick={() => handleEditTransaction(transaction)}
             />
             <Icon
               iconName="delete"
               onClick={() => handleDeleteTransaction(transaction.id)}
-            />
+            /> */}
           </div>
         </td>
       </tr>
@@ -142,12 +154,15 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
   return (
     <div className="transaction-table">
       <div className="d-flex justify-content-end pb-3">
-        <button className="addNewButton" onClick={handleAddNewTransaction}>
+        <button
+          className="action-table-button big"
+          onClick={handleAddNewTransaction}
+        >
           Add More
         </button>
         {/* <Icon iconName="add" size="big" onClick={handleAddNewTransaction} /> */}
       </div>
-      <Table striped hover responsive="sm" size="lg">
+      <table className="greyGridTable" striped hover responsive="sm" size="lg">
         <thead>
           <tr>
             {headers.map((header, index) => (
@@ -187,7 +202,7 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
             />
           )}
         </tbody>
-      </Table>
+      </table>
     </div>
   );
 };

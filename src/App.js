@@ -10,14 +10,12 @@ import "./App.css";
 
 const App = () => (
   <Router>
-    <div className="app">
-      <div className="page">
-        <Switch>
-          <Route path="/charts" component={Charts}></Route>
-          <Route path="/categories" component={Categories}></Route>
-          <Route path="/" component={TransactionsPage}></Route>
-        </Switch>
-      </div>
+    <div className="page">
+      <Switch>
+        <Route path="/charts" component={Charts}></Route>
+        <Route path="/categories" component={Categories}></Route>
+        <Route path="/" component={TransactionsPage}></Route>
+      </Switch>
     </div>
   </Router>
 );

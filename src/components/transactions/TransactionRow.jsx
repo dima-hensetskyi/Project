@@ -32,7 +32,7 @@ function TransactionRow({
 
   const handleSaveNewTransaction = () => {
     setIsValidated(true);
-    if (isValidCategory() && isValidMoney()) {
+    if (isValidCategory(category) && isValidMoney(money)) {
       onSaveNewTransaction();
     }
   };
@@ -115,8 +115,14 @@ function TransactionRow({
       </td>
       <td>
         <div className="action-buttons">
-          <Icon iconName="save" onClick={handleSaveNewTransaction} />
-          <Icon iconName="cancel" onClick={onCancelNewTransaction} />
+          <button className="action-button" onClick={handleSaveNewTransaction}>
+            Save
+          </button>
+          <button className="action-button" onClick={onCancelNewTransaction}>
+            Cancel
+          </button>
+          {/* <Icon iconName="save" onClick={handleSaveNewTransaction} /> */}
+          {/* <Icon iconName="cancel" onClick={onCancelNewTransaction} /> */}
         </div>
       </td>
     </tr>

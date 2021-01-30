@@ -4,9 +4,12 @@ import React from "react";
 // import EditIcon from "../../assets/img/icons/png-icons/png/218-edit.png";
 // import SaveIcon from "../../assets/img/icons/png-icons/png/059-success.png";
 // import CancelIcon from "../../assets/img/icons/png-icons/png/057-minus.png";
-import HomeIcon from "../../assets/bgr/white-house.png";
-import ChartIcon from "../../assets/bgr/white-chart-pie.png";
-import CategoryIcon from "../../assets/bgr/white-category.png";
+// import HomeIcon from "../../assets/bgr/white-house.png";
+// import ChartIcon from "../../assets/bgr/white-chart-pie.png";
+// import CategoryIcon from "../../assets/bgr/white-category.png";
+import HomeIcon from "../../assets/bgr/house.png";
+import ChartIcon from "../../assets/bgr/pie-chart.png";
+import CategoryIcon from "../../assets/bgr/category.png";
 
 import "./NavBarIcons.css";
 

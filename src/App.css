@@ -1,14 +1,9 @@
-.app {
+.page {
   width: 100%;
-  background-color: #edecf3;
   height: 100vw;
-  border-radius: 20px;
-  padding: 100px;
+  padding: 80px;
   display: flex;
   flex-direction: row;
-}
-.page {
-  background-color: #fff;
-  width: 100%;
-  border-radius: 20px;
+  background-image: url("./assets/bgr/16.jpg");
+  background-repeat: no-repeat;
 }

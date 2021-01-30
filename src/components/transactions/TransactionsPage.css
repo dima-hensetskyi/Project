@@ -1,24 +1,18 @@
 .transaction-page {
   width: 100%;
   background-color: #edecf3;
-  height: 100vw;
-  border-radius: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
-.navigation-wrapper {
-  background-color: #4333a0;
-  border-radius: 20px;
-  width: 300px;
-  display: flex;
-  justify-content: start;
-  padding-left: 30px;
-}
-.tables-wrapper {
-  background-color: #fff;
+/* .navigation-wrapper {
+  background-color: #180303;
   width: 100%;
-  border-radius: 20px;
-  padding: 80px;
-  margin-left: -32px;
-  /* background-image: url("../../assets/bgr/violet.jpg"); */
+  display: flex;
+  justify-content: space-around;
+} */
+.tables-wrapper {
+  /* background-color: #fff; */
+  width: 100%;
+  padding: 50px;
+  /* background: transparent; */
 }
