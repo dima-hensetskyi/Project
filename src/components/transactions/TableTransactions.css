@@ -21,17 +21,25 @@ th {
 .sort {
   color: red;
 }
-
+.filter {
+  background-color: ffffff;
+}
+.standard-basic {
+  width: 100%;
+  margin-left: 50px;
+  color: black;
+}
 table.greyGridTable {
   border: 0px solid #ffffff;
   width: 100%;
-  text-align: center;
+  text-align: left;
   border-collapse: collapse;
 }
 table.greyGridTable td,
 table.greyGridTable th {
   border: 1px solid #ffffff;
   padding: 3px 4px;
+  width: 160px;
 }
 table.greyGridTable tbody td {
   font-size: 16px;
@@ -42,14 +50,14 @@ table.greyGridTable td:nth-child(even) {
 }
 table.greyGridTable thead {
   background: #ffffff;
-  border-bottom: 2px solid #333333;
 }
 table.greyGridTable thead th {
+  padding-left: 5px;
+  padding-right: 5px;
   font-size: 15px;
   font-weight: bold;
   color: #333333;
-  text-align: center;
-  border-left: 2px solid #333333;
+  height: 30px;
 }
 table.greyGridTable thead th:first-child {
   border-left: none;
