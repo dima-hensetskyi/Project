@@ -7,8 +7,8 @@ const IncomesResponsiveBar = ({ incomesCategoriesDate }) => (
     keys={['Income']}
     indexBy="label"
     margin={{ top: 10, right: 50, bottom: 50, left: 50 }}
-    padding={0.3}
-    innerPadding={2}
+    padding={0.6}
+    innerPadding={1}
     valueScale={{ type: 'linear' }}
     indexScale={{ type: 'band', round: true }}
     colors={{ scheme: 'category10' }}
