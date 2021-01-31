@@ -35,11 +35,11 @@ const Charts = () => {
       <div className="charts">{TrackeresponsiveLine({ dataLine })}</div>
       <div className="bar-pie">
         <div className="income-categories">
-          {dataLine.length > 1 && <h3>Income categories</h3>}
+          <h3>Income categories</h3>
           {IncomesResponsiveBar({ incomesCategoriesDate })}
         </div>
         <div className="charges-categories">
-          {dataLine.length > 1 && <h3>Charges categories</h3>}
+          <h3>Charges categories</h3>
           {ChargesCategoriesPie({ chargesCategoriesData })}
         </div>
       </div>

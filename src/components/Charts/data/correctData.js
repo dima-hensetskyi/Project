@@ -31,20 +31,5 @@ export const correctData = (data, period) => {
 
   const sortByDate = (data) => data.sort((a, b) => (a.date > b.date ? 1 : -1));
 
-  const addTransactionByDate = (data) => {
-    return data.reduce((data, transaction) => {
-      const found = data.find(
-        (item) =>
-          item.date === transaction.date && item.date === transaction.date
-      );
-      if (found) {
-        found.money += transaction.money;
-      } else {
-        data.push(transaction);
-      }
-      return data;
-    }, []);
-  };
-
-  return addTransactionByDate(sortByDate(filterByDate(cloneData(data))));
+  return sortByDate(filterByDate(cloneData(data)));
 };
