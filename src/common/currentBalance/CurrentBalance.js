@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./CurrentBalance.css";
+import './CurrentBalance.css';
 
 const CurrentBalance = ({ balance }) => (
   <div className="balance-block">

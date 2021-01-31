@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 // import AddIcon from "../../assets/img/icons/png-icons/png/056-plus.png";
 // import DeleteIcon from "../../assets/img/icons/png-icons/png/058-error.png";
 // import EditIcon from "../../assets/img/icons/png-icons/png/218-edit.png";
@@ -7,20 +7,20 @@ import React from "react";
 // import HomeIcon from "../../assets/bgr/white-house.png";
 // import ChartIcon from "../../assets/bgr/white-chart-pie.png";
 // import CategoryIcon from "../../assets/bgr/white-category.png";
-import HomeIcon from "../../assets/bgr/house.png";
-import ChartIcon from "../../assets/bgr/pie-chart.png";
-import CategoryIcon from "../../assets/bgr/category.png";
+import HomeIcon from '../../assets/bgr/house.png';
+import ChartIcon from '../../assets/bgr/pie-chart.png';
+import CategoryIcon from '../../assets/bgr/category.png';
 
-import "./NavBarIcons.css";
+import './NavBarIcons.css';
 
 const NavBarIcon = ({ iconName }) => {
   function getUrlByName(iconName) {
     switch (iconName) {
-      case "home":
+      case 'home':
         return HomeIcon;
-      case "chart":
+      case 'chart':
         return ChartIcon;
-      case "categories":
+      case 'categories':
         return CategoryIcon;
       // case "save":
       //   return SaveIcon;

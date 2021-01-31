@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import CurrentBalance from "../currentBalance/CurrentBalance";
-import NavLinks from "../navLinks/NavLinks";
+import CurrentBalance from '../currentBalance/CurrentBalance';
+import NavLinks from '../navLinks/NavLinks';
 
-import "./NavBar.css";
+import './NavBar.css';
 
 const NavBar = ({ currentBalance }) => (
   <div className="navigate-wrapper">
