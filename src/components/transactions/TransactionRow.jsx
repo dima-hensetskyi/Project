@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { Form } from "react-bootstrap";
-import Select from "react-select";
-import DayPickerInput from "react-day-picker/DayPickerInput";
-import "react-day-picker/lib/style.css";
-import { formatDate, parseDate } from "react-day-picker/moment";
-import "./TransactionRow.css";
+import React, { useState } from 'react';
+import { Form } from 'react-bootstrap';
+import Select from 'react-select';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
+import { formatDate, parseDate } from 'react-day-picker/moment';
+import './TransactionRow.css';
 
 const transactionsOptions = [
-  { value: "food", label: "Food" },
-  { value: "clothes", label: "Clothes" },
-  { value: "restaurant", label: "Restaurant" },
-  { value: "utility bills", label: "Utility bills" },
-  { value: "pets", label: "Pets" },
+  { value: 'food', label: 'Food' },
+  { value: 'clothes', label: 'Clothes' },
+  { value: 'restaurant', label: 'Restaurant' },
+  { value: 'utility bills', label: 'Utility bills' },
+  { value: 'pets', label: 'Pets' },
 ];
 
 function TransactionRow({
@@ -34,7 +34,7 @@ function TransactionRow({
   };
 
   const isValidMoney = (money) => {
-    const regex = new RegExp("^(?=.*[0-9])");
+    const regex = new RegExp('^(?=.*[0-9])');
     return regex.test(String([money]).toLowerCase());
   };
 
@@ -44,7 +44,7 @@ function TransactionRow({
     <tr className="transaction-row">
       <td>
         <Select
-          className={isValidated && !isValidCategory(category) && "error-input"}
+          className={isValidated && !isValidCategory(category) && 'error-input'}
           value={{ value: category, label: category }}
           onChange={(selectedOption) => {
             onTransactionChange({
@@ -92,7 +92,7 @@ function TransactionRow({
       </td>
       <td>
         <Form.Control
-          className={isValidated && !isValidMoney(money) && "error-input"}
+          className={isValidated && !isValidMoney(money) && 'error-input'}
           type="text"
           placeholder="Money"
           onChange={({ target }) =>

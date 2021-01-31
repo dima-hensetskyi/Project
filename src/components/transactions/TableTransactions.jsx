@@ -1,27 +1,30 @@
-import React, { useState } from "react";
-import { formatDate } from "react-day-picker/moment";
-import { v4 as uuidv4 } from "uuid";
+import React, { useState, useEffect } from 'react';
+import { formatDate } from 'react-day-picker/moment';
+import { v4 as uuidv4 } from 'uuid';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
-import TransactionRow from "./TransactionRow";
-import "./TableTransactions.css";
-import _ from "lodash";
+import TransactionRow from './TransactionRow';
+import './TableTransactions.css';
+import _ from 'lodash';
+import Filter from './Filter';
 
 const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
   const [transactions, setTransactions] = useState(storedTransactions || []);
   const [newTransaction, setNewTransaction] = useState(null);
   const [editableTransactionId, setEditableTransactionId] = useState();
-  const [sort, setSort] = useState("desc");
-  const [sortField, setSortField] = useState("id");
+  const [sort, setSort] = useState('desc');
+  const [sortField, setSortField] = useState('id');
 
-  const headers = ["Category", "Description", "Date", "Money", "Action"];
+  const headers = ['Category', 'Description', 'Date', 'Money', 'Action'];
 
   const handleAddNewTransaction = () => {
     setNewTransaction({
       id: uuidv4(),
-      category: "",
-      description: "",
+      category: '',
+      description: '',
       date: formatDate(new Date()),
-      money: "",
+      money: '',
     });
   };
 
@@ -91,16 +94,15 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
 
   const onSort = (category) => {
     const cloneData = transactions.map((item) => {
-      if (typeof item.date === "string" || typeof moneyFormat === "string") {
-        const сorrectDateFormat = Date.parse(item.date);
-        const moneyFormat = item.money.replace(/\D/g, "");
-        return {
-          ...item,
-          money: Number(moneyFormat),
-          date: сorrectDateFormat,
-        };
-      }
-      return item;
+      const сorrectDateFormat = Date.parse(item.date);
+      const moneyFormat = Number(item.money)
+        ? Number(item.money)
+        : item.money.replace(/\D/g, '');
+      return {
+        ...item,
+        money: moneyFormat,
+        date: сorrectDateFormat,
+      };
     });
 
     const sortType = sort === `desc` ? `asc` : `desc`;
@@ -130,6 +132,8 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
     setTransactions(correctData);
   };
 
+  const filters = (value) => setTransactions(value);
+
   return (
     <div className="transaction-table">
       <div className="d-flex justify-content-end pb-3">
@@ -147,12 +151,20 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
               <th
                 key={index}
                 onClick={onSort.bind(null, `${header}`)}
-                className={sortField === header ? "sort" : "notSorting"}
+                className={sortField === header ? 'sort' : 'notSorting'}
               >
                 {header}
+                {sortField === header ? (
+                  sort === 'desc' ? (
+                    <ArrowDownwardIcon fontSize="small" />
+                  ) : (
+                    <ArrowUpwardIcon fontSize="small" />
+                  )
+                ) : null}
               </th>
             ))}
           </tr>
+          <Filter transactions={transactions} filters={filters} />
         </thead>
         <tbody>
           {transactions.map((transaction) => {
