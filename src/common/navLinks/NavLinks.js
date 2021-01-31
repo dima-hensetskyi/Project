@@ -1,8 +1,8 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import NavBarIcon from "../icons/NavBarIcons";
-import "./NavLinks.css";
+import NavBarIcon from '../icons/NavBarIcons';
+import './NavLinks.css';
 
 const NavLinks = () => (
   <div className="link-list-wrapper">
