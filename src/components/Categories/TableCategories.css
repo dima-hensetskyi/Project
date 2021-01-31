@@ -1,0 +1,12 @@
+.categorie-table .action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  th {
+    cursor: pointer;
+  }
+  .sort {
+    color: red;
+  }
+  
