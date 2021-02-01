@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { formatDate } from 'react-day-picker/moment';
 import { v4 as uuidv4 } from 'uuid';
+import _ from 'lodash';
+
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import _ from 'lodash';
 
+
 import TransactionRow from './TransactionRow';
 import Filter from './Filter';
 import { getSettings, getUser } from '../../common/utils/LocalStorageUtil';
+
 
 import './TableTransactions.css';
 

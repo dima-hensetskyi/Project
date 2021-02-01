@@ -10,18 +10,16 @@ import {
 
 import './CategoriesPage.css';
 
-const CategoriesPage = () => {
-  return (
-    <div className="categories-page">
-      <NavBar currentBalance={getStoredBalance()} />
-      <div className="categories-tables-wrapper">
-        <CategoriesTable
-          storedCategories={getChargesCategories()}
-          onChange={(categories) => setItem('chargesCategories', categories)}
-        />
-      </div>
+const CategoriesPage = () => (
+  <div className="categories-page">
+    <NavBar currentBalance={getStoredBalance()} />
+    <div className="categories-tables-wrapper">
+      <CategoriesTable
+        storedCategories={getChargesCategories()}
+        onChange={(categories) => setItem('chargesCategories', categories)}
+      />
     </div>
-  );
-};
+  </div>
+);
 
 export default CategoriesPage;
