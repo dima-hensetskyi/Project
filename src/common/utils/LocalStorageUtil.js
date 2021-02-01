@@ -3,10 +3,10 @@ export const getBalance = (incomes, charges) => {
 };
 
 export const getIncomes = () =>
-  JSON.parse(localStorage.getItem("incomes")) || [];
+  JSON.parse(localStorage.getItem('incomes')) || [];
 
 export const getCharges = () =>
-  JSON.parse(localStorage.getItem("charges")) || [];
+  JSON.parse(localStorage.getItem('charges')) || [];
 
 export const getStoredBalance = () => getBalance(getIncomes(), getCharges());
 

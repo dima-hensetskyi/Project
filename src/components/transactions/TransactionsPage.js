@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Tabs, Tab } from "react-bootstrap";
+import React, { useEffect, useState } from 'react';
+import { Tabs, Tab } from 'react-bootstrap';
 
-import TableTransactions from "./TableTransactions";
-import NavBar from "../../common/navBar/NavBar";
-import {
-  getBalance,
-  getIncomesSum,
-  getChargesSum,
-} from "../../common/utils/LocalStorageUtil";
+import TableTransactions from './TableTransactions';
+import NavBar from '../../common/navBar';
+import { getBalance } from '../../common/utils/LocalStorageUtil';
 
-import "./TransactionsPage.css";
+import './TransactionsPage.css';
 
 function TransactionsPage() {
-  const storedIncomes = JSON.parse(localStorage.getItem("incomes")) || [];
-  const storedCharges = JSON.parse(localStorage.getItem("charges")) || [];
+  const storedIncomes = JSON.parse(localStorage.getItem('incomes')) || [];
+  const storedCharges = JSON.parse(localStorage.getItem('charges')) || [];
 
   const minBalance = 1000;
 
@@ -26,8 +22,8 @@ function TransactionsPage() {
 
   const handleTransactionChange = (storageKey, transactions) => {
     localStorage.setItem(storageKey, JSON.stringify(transactions));
-    const incomes = storageKey === "incomes" ? transactions : storedIncomes;
-    const charges = storageKey === "charges" ? transactions : storedCharges;
+    const incomes = storageKey === 'incomes' ? transactions : storedIncomes;
+    const charges = storageKey === 'charges' ? transactions : storedCharges;
     const balance = getBalance(incomes, charges);
     setBalance(balance);
   };
@@ -45,7 +41,7 @@ function TransactionsPage() {
               storedTransactionKey="charges"
               storedTransactions={storedCharges}
               onTransactionChange={(transactions) =>
-                handleTransactionChange("charges", transactions)
+                handleTransactionChange('charges', transactions)
               }
             />
           </Tab>
@@ -54,7 +50,7 @@ function TransactionsPage() {
               storedTransactionKey="incomes"
               storedTransactions={storedIncomes}
               onTransactionChange={(transactions) =>
-                handleTransactionChange("incomes", transactions)
+                handleTransactionChange('incomes', transactions)
               }
             />
           </Tab>

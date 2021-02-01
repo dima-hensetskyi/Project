@@ -1,22 +1,25 @@
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Categories from "./components/categories/Categories";
-import Charts from "./components/charts/Charts";
-import SettingsPage from "./components/settings/Settings";
-import TransactionsPage from "./components/transactions/TransactionsPage";
+import Categories from './components/Categories/Categories';
+import ChartsPage from './components/Charts/ChartsPage';
+import HomePage from './components/HomePage';
+import SettingsPage from './components/settings/Settings';
+import TransactionsPage from './components/transactions/TransactionsPage';
 
-import "./App.css";
+import './App.css';
 
 const App = () => (
   <Router>
     <div className="page">
       <Switch>
+        <Route path="/home" component={HomePage} exact></Route>
+        <Route path="/charts" component={ChartsPage} exact></Route>
+        <Route path="/categories" component={Categories} exact></Route>
+        <Route path="/tables" component={TransactionsPage} exact></Route>
         <Route path="/settings" component={SettingsPage}></Route>
-        <Route path="/charts" component={Charts}></Route>
-        <Route path="/categories" component={Categories}></Route>
-        <Route path="/" component={TransactionsPage}></Route>
+        <Route path="/" component={HomePage}></Route>
       </Switch>
     </div>
   </Router>

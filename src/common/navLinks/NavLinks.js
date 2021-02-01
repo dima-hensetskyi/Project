@@ -1,48 +1,46 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import NavBarIcon from "../icons/NavBarIcons";
-import "./NavLinks.css";
+import NavBarIcon from '../icons/NavBarIcons';
+import './NavLinks.css';
 
 const NavLinks = () => (
   <div className="link-list-wrapper">
     <div className="link-list">
-      <div className="list-item-wrapper">
-        <NavBarIcon iconName="categories" />
-        <NavLink
-          to="/settings"
-          className="app-link"
-          activeClassName="active-link"
-        >
-          Settings
-        </NavLink>
-      </div>
-      <div className="list-item-wrapper">
-        <NavBarIcon iconName="home" />
-
-        <NavLink to="/home" className="app-link" activeClassName="active-link">
+      <NavLink to="/home" className="app-link" activeClassName="active-link">
+        <div className="list-item-wrapper">
+          <NavBarIcon iconName="home" />
           Home
-        </NavLink>
-      </div>
-      <div className="list-item-wrapper">
-        <NavBarIcon iconName="chart" />
-        <NavLink
-          to="/charts"
-          className="app-link"
-          activeClassName="active-link"
-        >
+        </div>
+      </NavLink>
+      <NavLink to="/charts" className="app-link" activeClassName="active-link">
+        <span className="list-item-wrapper">
+          <NavBarIcon iconName="chart" />
           Charts
-        </NavLink>
-      </div>
-      <div className="list-item-wrapper">
-        <NavBarIcon iconName="categories" />
-        <NavLink
-          to="/categories"
-          className="app-link"
-          activeClassName="active-link"
-        >
+        </span>
+      </NavLink>
+      <NavLink
+        to="/categories"
+        className="app-link"
+        activeClassName="active-link"
+      >
+        <span className="list-item-wrapper">
+          <NavBarIcon iconName="categories" />
           Categories
-        </NavLink>
+        </span>
+      </NavLink>
+      <NavLink to="/tables" className="app-link" activeClassName="active-link">
+        <span className="list-item-wrapper">
+          <NavBarIcon iconName="categories" />
+          Tables
+        </span>
+      </NavLink>
+      <NavLink to="/tables" className="app-link" activeClassName="active-link">
+        <span className="list-item-wrapper">
+          <NavBarIcon iconName="settings" />
+          Settings
+        </span>
+      </NavLink>
       </div>
     </div>
   </div>
