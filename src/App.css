@@ -1,6 +1,6 @@
 .page {
   width: 100%;
-  padding: 80px;
+  padding: 50px;
   display: flex;
   flex-direction: row;
   background: url('./assets/bgr/blue.jpg') no-repeat;
