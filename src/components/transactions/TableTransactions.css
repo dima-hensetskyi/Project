@@ -39,7 +39,7 @@ table.greyGridTable {
 table.greyGridTable td,
 table.greyGridTable th {
   border: 1px solid #ffffff;
-  padding: 3px 4px;
+  padding: 10px 15px;
   width: 160px;
 }
 table.greyGridTable tbody td {
@@ -50,11 +50,12 @@ table.greyGridTable tr:nth-child(even) {
   background: #ebebeb;
 }
 table.greyGridTable thead {
+  border-bottom: 1px solid grey;
   background: #ffffff;
 }
 table.greyGridTable thead th {
-  padding-left: 5px;
-  padding-right: 5px;
+  border-bottom: 1px solid grey;
+  padding: 10px 15px;
   font-size: 15px;
   font-weight: bold;
   color: #333333;

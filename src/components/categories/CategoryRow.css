@@ -1,0 +1,18 @@
+.category-row .action-row-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+ 
+  .action-row-button {
+    width: 65px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: #2c8dc1;
+    margin-right: 10px;
+    color: white;
+  }
+ 
+  
+  
