@@ -31,8 +31,18 @@ const NavLinks = () => (
       </NavLink>
       <NavLink to="/tables" className="app-link" activeClassName="active-link">
         <span className="list-item-wrapper">
-          <NavBarIcon iconName="categories" />
-          Tables
+          <NavBarIcon iconName="table" />
+          Incomes/Charges
+        </span>
+      </NavLink>
+      <NavLink
+        to="/settings"
+        className="app-link"
+        activeClassName="active-link"
+      >
+        <span className="list-item-wrapper">
+          <NavBarIcon iconName="settings" />
+          Settings
         </span>
       </NavLink>
     </div>

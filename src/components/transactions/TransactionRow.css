@@ -17,3 +17,15 @@
   margin-right: 10px;
   color: white;
 }
+
+.DayPickerInput {
+  width: 100%;
+}
+
+.DayPickerInput input {
+  height: 38px;
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+

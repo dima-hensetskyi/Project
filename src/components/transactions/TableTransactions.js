@@ -8,8 +8,13 @@ import TransactionRow from './TransactionRow';
 import './TableTransactions.css';
 import _ from 'lodash';
 import Filter from './Filter';
+import { getSettings } from '../../common/utils/LocalStorageUtil';
 
-const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
+const TableTransactions = ({
+  balance,
+  storedTransactions,
+  onTransactionChange,
+}) => {
   const [transactions, setTransactions] = useState(storedTransactions || []);
   const [newTransaction, setNewTransaction] = useState(null);
   const [editableTransactionId, setEditableTransactionId] = useState();
@@ -28,25 +33,53 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
     });
   };
 
-  const handleSaveNewTransaction = () => {
-    onTransactionChange([...transactions, newTransaction]);
-    setTransactions([...transactions, newTransaction]);
+  const settings = getSettings();
+
+  const saveTransactions = (transactions) => {
+    onTransactionChange(transactions);
+    setTransactions(transactions);
     setNewTransaction(null);
     setEditableTransactionId(null);
   };
 
-  const handleSaveEditableTransaction = () => {
-    const updatedTransactions = transactions.map((transaction) => {
-      if (transaction.id === newTransaction.id) {
+  const updateTransactionById = (id) => {
+    return transactions.map((transaction) => {
+      if (transaction.id === id) {
         return newTransaction;
       }
       return transaction;
     });
-    onTransactionChange(updatedTransactions);
+  };
 
-    setTransactions(updatedTransactions);
-    setNewTransaction(null);
-    setEditableTransactionId(null);
+  const getTransactionById = (id) =>
+    transactions.find((transaction) => transaction.id === id);
+
+  const isNeedWarning = (currentBalance) =>
+    settings.isNeedWarningBalance && currentBalance < settings.minBalance;
+
+  const isPossibleAdd = (currentBalance) => {
+    let isPossibleAdd = true;
+    if (isNeedWarning(currentBalance)) {
+      isPossibleAdd = window.confirm(
+        'Your current balance will be less as your minimum balance. Are you sure you want to continue?'
+      );
+    }
+    return isPossibleAdd;
+  };
+
+  const handleSaveNewTransaction = () => {
+    const currentBalance = balance - Number(newTransaction.money);
+    isPossibleAdd(currentBalance) &&
+      saveTransactions([...transactions, newTransaction]);
+  };
+
+  const handleSaveEditableTransaction = () => {
+    const updatedTransactions = updateTransactionById(newTransaction.id);
+    const currentBalance =
+      balance +
+      Number(getTransactionById(newTransaction.id).money) -
+      Number(newTransaction.money);
+    isPossibleAdd(currentBalance) && saveTransactions(updatedTransactions);
   };
 
   const handleCancelNewTransaction = () => {

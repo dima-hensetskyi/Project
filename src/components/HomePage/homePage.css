@@ -1,6 +1,6 @@
 .home-page {
     width: 100%;
-    background-color: #edecf3;
+    background-color: floralwhite;
     display: flex;
     flex-direction: column;
   }
@@ -18,6 +18,7 @@
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
+    padding-bottom: 30px;
     justify-content: space-around;
 }
 

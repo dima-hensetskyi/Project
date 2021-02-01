@@ -34,6 +34,7 @@ table.greyGridTable {
   width: 100%;
   text-align: left;
   border-collapse: collapse;
+  background: white;
 }
 table.greyGridTable td,
 table.greyGridTable th {
@@ -45,7 +46,7 @@ table.greyGridTable tbody td {
   font-size: 16px;
   width: 160px;
 }
-table.greyGridTable td:nth-child(even) {
+table.greyGridTable tr:nth-child(even) {
   background: #ebebeb;
 }
 table.greyGridTable thead {

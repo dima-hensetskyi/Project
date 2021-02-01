@@ -3,13 +3,17 @@ import { Tabs, Tab } from 'react-bootstrap';
 
 import TableTransactions from './TableTransactions';
 import NavBar from '../../common/navBar';
-import { getBalance } from '../../common/utils/LocalStorageUtil';
+import {
+  getBalance,
+  getIncomes,
+  getCharges,
+} from '../../common/utils/LocalStorageUtil';
 
 import './TransactionsPage.css';
 
 function TransactionsPage() {
-  const storedIncomes = JSON.parse(localStorage.getItem('incomes')) || [];
-  const storedCharges = JSON.parse(localStorage.getItem('charges')) || [];
+  const storedIncomes = getIncomes();
+  const storedCharges = getCharges();
 
   const [balance, setBalance] = useState(0);
 
@@ -33,6 +37,7 @@ function TransactionsPage() {
         <Tabs defaultActiveKey="charges" className="mb-5">
           <Tab eventKey="charges" title="Charges">
             <TableTransactions
+              balance={balance}
               storedTransactionKey="charges"
               storedTransactions={storedCharges}
               onTransactionChange={(transactions) =>

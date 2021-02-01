@@ -33,10 +33,7 @@ function TransactionRow({
     }
   };
 
-  const isValidMoney = (money) => {
-    const regex = new RegExp('^(?=.*[0-9])');
-    return regex.test(String([money]).toLowerCase());
-  };
+  const isValidMoney = (money) => !isNaN(money);
 
   const isValidCategory = (category) => !!category;
 

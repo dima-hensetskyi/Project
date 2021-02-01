@@ -5,17 +5,17 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 import {
   chargesPie,
   incomesCategories,
   dataLineHomePage,
-} from '../Charts/data/homePageChartsData';
+} from '../charts/data/homePageChartsData';
 
-import ChargesCategoriesPie from '../Charts/ChargesCategories';
-import TrackeresponsiveLine from '../Charts/ResponsiveLine';
-import IncomesResponsiveBar from '../Charts/IncomesResponsiveBar';
-import { Link } from 'react-router-dom';
+import ChargesCategoriesPie from '../charts/ChargesCategories';
+import TrackeresponsiveLine from '../charts/ResponsiveLine';
+import IncomesResponsiveBar from '../charts/IncomesResponsiveBar';
 
 const useStyles = makeStyles({
   root: {
