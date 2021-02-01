@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import Select from 'react-select';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import 'react-day-picker/lib/style.css';
 import { formatDate, parseDate } from 'react-day-picker/moment';
+
+import 'react-day-picker/lib/style.css';
 import './TransactionRow.css';
 
 function TransactionRow({

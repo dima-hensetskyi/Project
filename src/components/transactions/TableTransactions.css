@@ -74,3 +74,10 @@ table.greyGridTable tfoot {
 table.greyGridTable tfoot td {
   font-size: 14px;
 }
+.user-photo{
+  height: 32px;
+  border-radius: 50%;
+}
+.table-photo {
+ margin-right: -40px;
+}

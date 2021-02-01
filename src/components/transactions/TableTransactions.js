@@ -3,12 +3,13 @@ import { formatDate } from 'react-day-picker/moment';
 import { v4 as uuidv4 } from 'uuid';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import _ from 'lodash';
 
 import TransactionRow from './TransactionRow';
-import './TableTransactions.css';
-import _ from 'lodash';
 import Filter from './Filter';
-import { getSettings } from '../../common/utils/LocalStorageUtil';
+import { getSettings, getUser } from '../../common/utils/LocalStorageUtil';
+
+import './TableTransactions.css';
 
 const TableTransactions = ({
   balance,
@@ -121,6 +122,9 @@ const TableTransactions = ({
           >
             Delete
           </button>
+          <span className="table-photo">
+            <img src={user.photo} alt="user photo" className="user-photo" />
+          </span>
         </div>
       </td>
     </tr>
@@ -167,6 +171,7 @@ const TableTransactions = ({
   };
 
   const filters = (value) => setTransactions(value);
+  const user = getUser();
 
   return (
     <div className="transaction-table">
@@ -178,7 +183,7 @@ const TableTransactions = ({
           Add More
         </button>
       </div>
-      <table className="greyGridTable" striped hover responsive="sm" size="lg">
+      <table className="greyGridTable" striped responsive="sm" size="lg">
         <thead>
           <tr>
             {headers.map((header, index) => (
