@@ -12,7 +12,7 @@ const User = () => {
       <div className="photo">
         <img src={user.photo} alt="user photo" />
       </div>
-      <span className="user-name">{`Hello ${user.lastName}`}</span>
+      <span className="user-name">{`Hello ${user.firstName}`}</span>
     </div>
   );
 };

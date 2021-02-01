@@ -5,10 +5,13 @@ import _ from 'lodash';
 
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import _ from 'lodash';
 
-import Filter from './Filter';
-import { getSettings } from '../../common/utils/LocalStorageUtil';
+
 import TransactionRow from './TransactionRow';
+import Filter from './Filter';
+import { getSettings, getUser } from '../../common/utils/LocalStorageUtil';
+
 
 import './TableTransactions.css';
 
@@ -123,6 +126,9 @@ const TableTransactions = ({
           >
             Delete
           </button>
+          <span className="table-photo">
+            <img src={user.photo} alt="user photo" className="user-photo" />
+          </span>
         </div>
       </td>
     </tr>
@@ -169,6 +175,7 @@ const TableTransactions = ({
   };
 
   const filters = (value) => setTransactions(value);
+  const user = getUser();
 
   return (
     <div className="transaction-table">
@@ -180,7 +187,7 @@ const TableTransactions = ({
           Add More
         </button>
       </div>
-      <table className="greyGridTable" striped hover responsive="sm" size="lg">
+      <table className="greyGridTable" striped responsive="sm" size="lg">
         <thead>
           <tr>
             {headers.map((header, index) => (
