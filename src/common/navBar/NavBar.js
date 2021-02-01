@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CurrentBalance from '../currentBalance/CurrentBalance';
-import NavLinks from '../navLinks/NavLinks';
+import NavLinks from '../navLinks';
 
 import './NavBar.css';
 

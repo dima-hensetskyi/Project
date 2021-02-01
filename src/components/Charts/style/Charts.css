@@ -3,6 +3,7 @@
   padding: 50px;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .charts {
   width: 1000px;
@@ -44,7 +45,7 @@
   justify-content: center;
   align-items: center;
 }
-.cart {
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,6 +53,6 @@
   height: 500px;
   padding: 30px;
 }
-.cart img {
+.card img {
   width: 300px;
 }
