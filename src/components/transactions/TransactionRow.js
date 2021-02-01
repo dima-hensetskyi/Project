@@ -6,20 +6,13 @@ import 'react-day-picker/lib/style.css';
 import { formatDate, parseDate } from 'react-day-picker/moment';
 import './TransactionRow.css';
 
-const transactionsOptions = [
-  { value: 'food', label: 'Food' },
-  { value: 'clothes', label: 'Clothes' },
-  { value: 'restaurant', label: 'Restaurant' },
-  { value: 'utility bills', label: 'Utility bills' },
-  { value: 'pets', label: 'Pets' },
-];
-
 function TransactionRow({
   id,
   category,
   description,
   date,
   money,
+  transactionsOptions,
   onTransactionChange,
   onSaveNewTransaction,
   onCancelNewTransaction,

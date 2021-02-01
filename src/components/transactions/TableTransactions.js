@@ -12,6 +12,7 @@ import { getSettings } from '../../common/utils/LocalStorageUtil';
 
 const TableTransactions = ({
   balance,
+  transactionsOptions,
   storedTransactions,
   onTransactionChange,
 }) => {
@@ -206,6 +207,7 @@ const TableTransactions = ({
                 <TransactionRow
                   key={transaction.id}
                   {...newTransaction}
+                  transactionsOptions={transactionsOptions}
                   onTransactionChange={setNewTransaction}
                   onSaveNewTransaction={handleSaveEditableTransaction}
                   onCancelNewTransaction={handleCancelNewTransaction}
@@ -219,6 +221,7 @@ const TableTransactions = ({
             <TransactionRow
               key={newTransaction.id}
               {...newTransaction}
+              transactionsOptions={transactionsOptions}
               onTransactionChange={setNewTransaction}
               onSaveNewTransaction={handleSaveNewTransaction}
               onCancelNewTransaction={handleCancelNewTransaction}

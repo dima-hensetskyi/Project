@@ -7,6 +7,8 @@ import {
   getBalance,
   getIncomes,
   getCharges,
+  getChargesCategories,
+  getIncomesCategories,
 } from '../../common/utils/LocalStorageUtil';
 
 import './TransactionsPage.css';
@@ -38,6 +40,7 @@ function TransactionsPage() {
           <Tab eventKey="charges" title="Charges">
             <TableTransactions
               balance={balance}
+              transactionsOptions={getChargesCategories()}
               storedTransactionKey="charges"
               storedTransactions={storedCharges}
               onTransactionChange={(transactions) =>
@@ -47,6 +50,7 @@ function TransactionsPage() {
           </Tab>
           <Tab eventKey="incomes" title="Incomes">
             <TableTransactions
+              transactionsOptions={getIncomesCategories()}
               storedTransactionKey="incomes"
               storedTransactions={storedIncomes}
               onTransactionChange={(transactions) =>

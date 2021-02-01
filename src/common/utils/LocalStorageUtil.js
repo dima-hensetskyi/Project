@@ -36,9 +36,33 @@ export const getUser = () =>
 
 export const getChargesCategories = () =>
   JSON.parse(localStorage.getItem('chargesCategories')) || [
-    { value: 'food', label: 'Food' },
-    { value: 'clothes', label: 'Clothes' },
-    { value: 'restaurant', label: 'Restaurant' },
-    { value: 'utility bills', label: 'Utility bills' },
-    { value: 'pets', label: 'Pets' },
+    { id: 1, category: 'food', description: '', value: 'food', label: 'Food' },
+    {
+      id: 2,
+      category: 'clothes',
+      description: '',
+      value: 'clothes',
+      label: 'Clothes',
+    },
+    {
+      id: 3,
+      category: 'restaurant',
+      description: '',
+      value: 'restaurant',
+      label: 'Restaurant',
+    },
+    {
+      id: 4,
+      category: 'utility bills',
+      description: '',
+      value: 'utility bills',
+      label: 'Utility bills',
+    },
+    { id: 5, category: 'pets', description: '', value: 'pets', label: 'Pets' },
+  ];
+
+export const getIncomesCategories = () =>
+  JSON.parse(localStorage.getItem('incomesCategories')) || [
+    { id: 1, value: 'salary', label: 'Salary' },
+    { id: 2, value: 'saving', label: 'Saving' },
   ];
