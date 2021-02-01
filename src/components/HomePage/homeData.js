@@ -1,4 +1,4 @@
-import { correctData } from '../charts/data/correctData';
+import { correctData } from '../Charts/data/correctData';
 import { getIncomes, getCharges } from '../../common/utils/LocalStorageUtil';
 
 export const chargesForMounth = correctData(getCharges(), 'mounth');

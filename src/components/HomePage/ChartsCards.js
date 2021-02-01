@@ -11,11 +11,11 @@ import {
   chargesPie,
   incomesCategories,
   dataLineHomePage,
-} from '../charts/data/homePageChartsData';
+} from '../Charts/data/homePageChartsData';
 
-import ChargesCategoriesPie from '../charts/ChargesCategories';
-import TrackeresponsiveLine from '../charts/ResponsiveLine';
-import IncomesResponsiveBar from '../charts/IncomesResponsiveBar';
+import ChargesCategoriesPie from '../Charts/ChargesCategories';
+import TrackeresponsiveLine from '../Charts/ResponsiveLine';
+import IncomesResponsiveBar from '../Charts/IncomesResponsiveBar';
 
 const useStyles = makeStyles({
   root: {
