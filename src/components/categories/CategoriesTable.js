@@ -38,16 +38,6 @@ const CategoriesTable = ({ storedCategories, onChange }) => {
     });
   };
 
-  const handleSaveNewCategory = () => {
-    saveCategories([...categories, newCategory]);
-  };
-
-  const handleSaveEditableCategory = () => {
-    const updatedCategories = updateCategoryById(newCategory.id);
-
-    saveCategories(updatedCategories);
-  };
-
   const handleCancelNewCategory = () => {
     setNewCategory(null);
     setEditableCategoryId(null);
@@ -113,7 +103,9 @@ const CategoriesTable = ({ storedCategories, onChange }) => {
                   key={category.id}
                   {...newCategory}
                   onCategoryChange={setNewCategory}
-                  onSaveNewCategory={handleSaveEditableCategory}
+                  onSaveNewCategory={() =>
+                    saveCategories(updateCategoryById(newCategory.id))
+                  }
                   onCancelNewCategory={handleCancelNewCategory}
                 />
               );
@@ -126,7 +118,9 @@ const CategoriesTable = ({ storedCategories, onChange }) => {
               key={newCategory.id}
               {...newCategory}
               onCategoryChange={setNewCategory}
-              onSaveNewCategory={handleSaveNewCategory}
+              onSaveNewCategory={() =>
+                saveCategories([...categories, newCategory])
+              }
               onCancelNewCategory={handleCancelNewCategory}
             />
           )}

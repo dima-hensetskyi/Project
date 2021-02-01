@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 
-import TableTransactions from './TableTransactions';
 import NavBar from '../../common/navBar';
 import {
   getBalance,
@@ -10,10 +9,11 @@ import {
   getChargesCategories,
   getIncomesCategories,
 } from '../../common/utils/LocalStorageUtil';
+import TableTransactions from './TableTransactions';
 
 import './TransactionsPage.css';
 
-function TransactionsPage() {
+const TransactionsPage = () => {
   const storedIncomes = getIncomes();
   const storedCharges = getCharges();
 
@@ -62,6 +62,6 @@ function TransactionsPage() {
       </div>
     </div>
   );
-}
+};
 
 export default TransactionsPage;

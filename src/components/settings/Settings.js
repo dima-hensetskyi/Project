@@ -12,6 +12,7 @@ import {
   getUser,
   setItem,
 } from '../../common/utils/LocalStorageUtil';
+
 import './Settings.css';
 
 const Settings = () => {
@@ -31,11 +32,6 @@ const Settings = () => {
       [fieldName]: !isFieldValid(fieldName),
     });
   };
-
-  // const checkName = (name) => {
-
-  //   return name.length >= 3;
-  // };
 
   const checkEmailAddress = (email) => {
     const regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
