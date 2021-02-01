@@ -26,6 +26,8 @@ const CategoryRow = ({
               id,
               description,
               category: target.value,
+              value: target.value,
+              label: target.value,
             })
           }
           value={category}
@@ -40,6 +42,8 @@ const CategoryRow = ({
               id,
               description: target.value,
               category,
+              value: target.value,
+              label: target.value,
             })
           }
           value={description}
