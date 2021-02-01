@@ -1,5 +1,6 @@
 .charts-page {
   width: 100%;
+  height: 140vh;
   background-color: floralwhite;
   display: flex;
   flex-direction: column;
