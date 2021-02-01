@@ -1,0 +1,12 @@
+.categories-page {
+    width: 100%;
+    background-color: floralwhite;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .categories-tables-wrapper {
+    width: 100%;
+    padding: 50px;
+  }
+  
