@@ -1,3 +1,6 @@
+export const setItem = (key, value) =>
+  localStorage.setItem(key, JSON.stringify(value));
+
 export const getBalance = (incomes, charges) => {
   return getIncomesSum(incomes) - getChargesSum(charges);
 };
@@ -15,3 +18,18 @@ export const getIncomesSum = (incomes) =>
 
 export const getChargesSum = (charges) =>
   charges.reduce((total, charge) => (total += +charge.money), 0);
+
+export const getSettings = () =>
+  JSON.parse(localStorage.getItem('settings')) || {
+    isNeedWarningBalance: false,
+    minBalance: null,
+  };
+
+export const getUser = () =>
+  JSON.parse(localStorage.getItem('user')) || {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    photo: '',
+  };

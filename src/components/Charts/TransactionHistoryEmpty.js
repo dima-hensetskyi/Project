@@ -5,6 +5,8 @@ import transactionsIcon from './style/transactions-icon.png';
 import './style/Charts.css';
 import { Redirect } from 'react-router-dom';
 
+import './TransactionHistoryEmpty.css';
+
 const HistoryEmpty = () => {
   const [navigate, setNavigate] = useState(false);
 
