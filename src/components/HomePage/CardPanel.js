@@ -1,5 +1,3 @@
 import Cards from './Cards';
-const CardPanel = () => {
-  return <Cards />;
-};
+const CardPanel = () => <Cards />;
 export default CardPanel;
