@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { bounce, bounceInLeft, bounceInDown } from 'react-animations';
+import { bounce, flip } from 'react-animations';
 
 const Container = styled.div`
   max-width: 1140px;
@@ -11,7 +11,7 @@ const ContainerTitle = styled.h3`
 `;
 const Card = styled.div`
   color: rgba(0, 0, 0, 0.87);
-  width: 250px;
+  width: 270px;
   border: 0;
   display: flex;
   position: relative; 
@@ -30,6 +30,13 @@ const CardInfo = styled.div`
   padding: 10px;
   padding-left: 0px;
 `;
+const CardInfoFotter = styled.div`
+  border-top: 1px solid#eee;
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+`;
 
 const CardColorIncomes = styled.div`
   display: flex;
@@ -41,8 +48,8 @@ const CardColorIncomes = styled.div`
   background: linear-gradient(60deg, #66bb6a, #43a047);
   box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%),
     0 7px 10px -5px rgb(76 175 80 / 40%);
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
 `;
 const CardColorCharges = styled.div`
   display: flex;
@@ -54,8 +61,8 @@ const CardColorCharges = styled.div`
   box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%),
     0 7px 10px -5px rgb(244 67 54 / 40%);
   margin: -20px 15px 0px 10px;
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
 `;
 const CardColorTransaction = styled.div`
   display: flex;
@@ -67,8 +74,8 @@ const CardColorTransaction = styled.div`
   box-shadow: 0 4px 20px 0 rgb(0 0 0 / 14%),
     0 7px 10px -5px rgb(255 152 0 / 40%);
   margin: -20px 15px 0px 10px;
-  height: 70px;
-  width: 70px;
+  height: 80px;
+  width: 80px;
 `;
 
 const CardTitle = styled.h5`
@@ -79,10 +86,12 @@ const CardTitle = styled.h5`
 
 const CardText = styled.p`
   margin: 3px;
+  color: #999;
+  margin-bottom: 10px;
 `;
-const bounceAnimation = keyframes`${bounce}`;
-const BouncyDiv = styled.div`
-  animation: 5s ${bounceAnimation};
+const flipAnimation = keyframes`${flip}`;
+const FlipDiv = styled.div`
+  animation: 1s ${flipAnimation};
 `;
 
 export {
@@ -93,7 +102,8 @@ export {
   CardColorCharges,
   CardColorIncomes,
   CardTitle,
+  CardInfoFotter,
   CardText,
   CardColorTransaction,
-  BouncyDiv,
+  FlipDiv,
 };
