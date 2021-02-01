@@ -23,7 +23,7 @@ const dataTrackeresponsiveLine = (period) => {
     return data.map((transaction) => {
       const correctDate = new Date(transaction.date);
 
-      let options = { weekday: 'long' };
+      const options = { weekday: 'long' };
       const correctWeekday = new Intl.DateTimeFormat('en-US', options).format(
         correctDate
       );

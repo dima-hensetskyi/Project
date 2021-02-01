@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 
 import TableTransactions from './TableTransactions';
-import NavBar from '../../common/navBar/NavBar';
+import NavBar from '../../common/navBar';
 import { getBalance } from '../../common/utils/LocalStorageUtil';
 
 import './TransactionsPage.css';
