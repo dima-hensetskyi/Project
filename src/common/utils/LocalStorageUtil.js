@@ -34,12 +34,11 @@ export const getUser = () =>
     photo: '',
   };
 
-export const getChargesCategories = () => {
-  JSON.parse(localStorage.getItem('settings')) || [
+export const getChargesCategories = () =>
+  JSON.parse(localStorage.getItem('chargesCategories')) || [
     { value: 'food', label: 'Food' },
     { value: 'clothes', label: 'Clothes' },
     { value: 'restaurant', label: 'Restaurant' },
     { value: 'utility bills', label: 'Utility bills' },
     { value: 'pets', label: 'Pets' },
   ];
-};
