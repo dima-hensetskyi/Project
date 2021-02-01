@@ -2,7 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import CategoriesPage from '../../components/categories/CategoriesPage';
 
-import ChartsPage from '../../components/charts/ChartsPage';
+import ChartsPage from '../../components/Charts/ChartsPage';
 
 import HomePage from '../../components/HomePage';
 import Settings from '../../components/settings/Settings';
