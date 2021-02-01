@@ -1,3 +1,13 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import {
+  chargesForMounth,
+  chargesPerWeek,
+  incomesForMounth,
+  incomesPerWeek,
+} from './homeData';
+
 import {
   Container,
   Card,
@@ -7,76 +17,131 @@ import {
   CardTitle,
   CardText,
   CardColorTransaction,
-  BouncyDiv,
+  FlipDiv,
+  CardInfoFotter,
 } from './CardStyleComponents/CardStyleComponents';
-import { getIncomes, getCharges } from '../../common/utils/LocalStorageUtil';
 
 const Cards = () => {
-  const income = getIncomes();
-  const charges = getCharges();
+  const [chargesPeriodChange, setChargesPeriodChange] = useState(false);
+  const [incomesPeriodChange, setIncomesPeriodChange] = useState(false);
+  const [chargesData, setChargesData] = useState(chargesPerWeek);
+  const [incomeData, setIncomeData] = useState(incomesPerWeek);
 
-  const incomesSum = income.reduce(
+  useEffect(() => {
+    chargesPeriodChange
+      ? setChargesData(chargesForMounth)
+      : setChargesData(chargesPerWeek);
+  }, [chargesPeriodChange]);
+
+  useEffect(() => {
+    incomesPeriodChange
+      ? setIncomeData(incomesForMounth)
+      : setIncomeData(incomesPerWeek);
+  }, [incomesPeriodChange]);
+
+  const incomesSum = incomeData.reduce(
     (total, income) => (total += +income.money),
     0
   );
-  const chargesSum = charges.reduce(
+
+  const chargesSum = chargesData.reduce(
     (total, charge) => (total += +charge.money),
     0
   );
 
-  const numberTransactions = income.length + charges.length;
+  const numberTransactions = incomesForMounth.length + chargesForMounth.length;
 
-  const handleChange = () => {};
   return (
     <div className="card-panel">
       <Container>
         <Card className="card-panel">
-          <CardColorCharges onClick={() => handleChange}>
-            <span className="material-icons">money_off</span>
-          </CardColorCharges>
+          <FlipDiv>
+            <CardColorCharges>
+              <span className="material-icons">money_off</span>
+            </CardColorCharges>
+          </FlipDiv>
           <CardInfo>
             <CardTitle>Charges</CardTitle>
             <CardTitle>{chargesSum}</CardTitle>
           </CardInfo>
-          <CardInfo>
-            <CardText className="footer-card-text">
-              Get more information
+          <CardInfoFotter className="footer">
+            <CardText
+              className="footer-card-text"
+              onClick={() =>
+                chargesPeriodChange
+                  ? setChargesPeriodChange(false)
+                  : setChargesPeriodChange(true)
+              }
+            >
+              <span className="material-icons">date_range</span>
+              {chargesPeriodChange ? 'This month' : 'Last 7 day'}
             </CardText>
-          </CardInfo>
+            <CardText className="footer-card-text">
+              <Link className="home-link-card" to="/tables">
+                <span className="material-icons">more</span>
+                Get more information
+              </Link>
+            </CardText>
+          </CardInfoFotter>
         </Card>
       </Container>
 
       <Container>
         <Card className="card-panel">
-          <CardColorIncomes>
-            <span className="material-icons">attach_money</span>
-          </CardColorIncomes>
+          <FlipDiv>
+            <CardColorIncomes>
+              <span className="material-icons">attach_money</span>
+            </CardColorIncomes>
+          </FlipDiv>
           <CardInfo>
             <CardTitle>Revenue</CardTitle>
             <CardTitle>{incomesSum}</CardTitle>
           </CardInfo>
-          <CardInfo>
-            <CardText className="footer-card-text">
-              Get more information
+          <CardInfoFotter className="footer">
+            <CardText
+              className="footer-card-text"
+              onClick={() =>
+                incomesPeriodChange
+                  ? setIncomesPeriodChange(false)
+                  : setIncomesPeriodChange(true)
+              }
+            >
+              <span className="material-icons">date_range</span>
+              {incomesPeriodChange ? 'This month' : 'Last 7 day'}
             </CardText>
-          </CardInfo>
+            <CardText className="footer-card-text">
+              <Link className="home-link-card" to="/tables">
+                <span className="material-icons">more</span>
+                Get more information
+              </Link>
+            </CardText>
+          </CardInfoFotter>
         </Card>
       </Container>
 
       <Container>
         <Card className="card-panel">
-          <CardColorTransaction>
-            <span className="material-icons">multiple_stop</span>
-          </CardColorTransaction>
+          <FlipDiv>
+            <CardColorTransaction onClick={() => <FlipDiv />}>
+              <span className="material-icons">multiple_stop</span>
+            </CardColorTransaction>
+          </FlipDiv>
           <CardInfo>
             <CardTitle>Transactions</CardTitle>
             <CardTitle>{numberTransactions}</CardTitle>
           </CardInfo>
-          <CardInfo>
+          <CardInfoFotter className="footer">
             <CardText className="footer-card-text">
-              Get more information
+              <span className="material-icons">date_range</span>
+              This month
             </CardText>
-          </CardInfo>
+            <CardText className="footer-card-text">
+              <Link className="home-link-card" to="/tables">
+                <span className="material-icons">more</span>
+                Get more information
+              </Link>
+            </CardText>
+          </CardInfoFotter>
         </Card>
       </Container>
     </div>

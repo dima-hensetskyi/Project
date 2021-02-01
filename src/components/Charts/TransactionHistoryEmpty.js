@@ -15,7 +15,7 @@ const HistoryEmpty = () => {
   return (
     <div className="chards-wrapper">
       <div className="card">
-        <img src={transactionsIcon} />
+        <img src={transactionsIcon} alt="Transaction history empty" />
         <h3>No Transactions</h3>
         <p>You heven't made any transactions yet</p>
         <Button variant="contained" color="primary" onClick={handleClick}>

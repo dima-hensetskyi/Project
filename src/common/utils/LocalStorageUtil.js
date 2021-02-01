@@ -33,3 +33,13 @@ export const getUser = () =>
     password: '',
     photo: '',
   };
+
+export const getChargesCategories = () => {
+  JSON.parse(localStorage.getItem('settings')) || [
+    { value: 'food', label: 'Food' },
+    { value: 'clothes', label: 'Clothes' },
+    { value: 'restaurant', label: 'Restaurant' },
+    { value: 'utility bills', label: 'Utility bills' },
+    { value: 'pets', label: 'Pets' },
+  ];
+};
