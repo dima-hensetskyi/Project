@@ -26,7 +26,7 @@ function TransactionRow({
     }
   };
 
-  const isValidMoney = (money) => !isNaN(money);
+  const isValidMoney = (money) => !isNaN(money) && money > 0;
 
   const isValidCategory = (category) => !!category;
 

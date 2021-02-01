@@ -17,6 +17,8 @@ const CategoriesTable = ({ storedCategories, onChange }) => {
       id: uuidv4(),
       category: '',
       description: '',
+      value: '',
+      label: '',
     });
   };
 
