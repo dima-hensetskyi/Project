@@ -6,7 +6,11 @@ import TransactionRow from "./TransactionRow";
 import "./TableTransactions.css";
 import _ from "lodash";
 
-const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
+const TableTransactions = ({
+  storedTransactions,
+  onTransactionChange,
+  isNeedWarning,
+}) => {
   const [transactions, setTransactions] = useState(storedTransactions || []);
   const [newTransaction, setNewTransaction] = useState(null);
   const [editableTransactionId, setEditableTransactionId] = useState();
@@ -161,6 +165,7 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
                 <TransactionRow
                   key={transaction.id}
                   {...newTransaction}
+                  isNeedWarning={isNeedWarning}
                   onTransactionChange={setNewTransaction}
                   onSaveNewTransaction={handleSaveEditableTransaction}
                   onCancelNewTransaction={handleCancelNewTransaction}
@@ -174,6 +179,7 @@ const TableTransactions = ({ storedTransactions, onTransactionChange }) => {
             <TransactionRow
               key={newTransaction.id}
               {...newTransaction}
+              isNeedWarning={isNeedWarning}
               onTransactionChange={setNewTransaction}
               onSaveNewTransaction={handleSaveNewTransaction}
               onCancelNewTransaction={handleCancelNewTransaction}

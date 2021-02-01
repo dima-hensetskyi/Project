@@ -20,6 +20,7 @@ function TransactionRow({
   description,
   date,
   money,
+  isNeedWarning,
   onTransactionChange,
   onSaveNewTransaction,
   onCancelNewTransaction,
@@ -28,6 +29,12 @@ function TransactionRow({
 
   const handleSaveNewTransaction = () => {
     setIsValidated(true);
+    // let isPossibleAdd = true;
+    // if (isNeedWarning) {
+    //   isPossibleAdd = window.confirm(
+    //     "Your current balance will be less as your minimum balance. Are you sure you want to continue?"
+    //   );
+    // }
     if (isValidCategory(category) && isValidMoney(money)) {
       onSaveNewTransaction();
     }

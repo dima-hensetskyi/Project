@@ -8,6 +8,16 @@ const NavLinks = () => (
   <div className="link-list-wrapper">
     <div className="link-list">
       <div className="list-item-wrapper">
+        <NavBarIcon iconName="categories" />
+        <NavLink
+          to="/settings"
+          className="app-link"
+          activeClassName="active-link"
+        >
+          Settings
+        </NavLink>
+      </div>
+      <div className="list-item-wrapper">
         <NavBarIcon iconName="home" />
 
         <NavLink to="/home" className="app-link" activeClassName="active-link">

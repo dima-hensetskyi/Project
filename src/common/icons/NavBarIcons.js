@@ -22,10 +22,8 @@ const NavBarIcon = ({ iconName }) => {
         return ChartIcon;
       case "categories":
         return CategoryIcon;
-      // case "save":
+      // case "settings":
       //   return SaveIcon;
-      // case "cancel":
-      //   return CancelIcon;
     }
   }
 
